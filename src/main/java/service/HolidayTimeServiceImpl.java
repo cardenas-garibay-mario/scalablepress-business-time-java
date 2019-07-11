@@ -34,8 +34,8 @@ public class HolidayTimeServiceImpl implements HolidayTimeService {
     }
 
     private boolean isAddedDurationTimeBetweenHoliday(DateRange holiday, LocalDateTime time, long durationInSeconds) {
-        return time.isBefore(holiday.getStart())
-                || time.isEqual(holiday.getStart())
+        return (time.isBefore(holiday.getStart())
+                || time.isEqual(holiday.getStart()))
                 && time.plusSeconds(durationInSeconds).isAfter(holiday.getStart());
     }
 
